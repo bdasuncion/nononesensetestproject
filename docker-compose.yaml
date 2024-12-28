@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+    mongodb:
+      image: 'mongo'
+      volumes:
+        - data:/data/db
+      environment:
+        MONGO_INITDB_ROOT_USERNAME: bryan
+        MONGO_INITDB_ROOT_PASSWORD: password
+      ports:
+      - 27017:27017
+    server:
+      build: ./server
+      ports:
+        - 80:80
+      volumes:
+        #- logs:/app/logs
+        - ./server:/app
+        - /app/node_modules
+        - /app/dist
+      environment:
+        MONGODB_USERNAME: bryan
+        MONGODB_PASSWORD: password 
+      depends_on:
+        - mongodb
+      stdin_open: true
+      tty: true
+volumes:
+  data:
