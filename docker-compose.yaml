@@ -19,8 +19,8 @@ services:
         - /app/node_modules
         - /app/dist
       environment:
-        MONGODB_USERNAME: bryan
-        MONGODB_PASSWORD: password 
+        MONGODB_USERNAME: bryanadministrator
+        MONGODB_PASSWORD: databaseadministrator 
       depends_on:
         - mongodb
       stdin_open: true

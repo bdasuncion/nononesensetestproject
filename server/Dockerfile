@@ -12,8 +12,6 @@ COPY . .
 
 RUN npm run build
 
-#COPY dist ./app/dist
-
 EXPOSE 80
 
 ENV MONGODB_USERNAME=bryan

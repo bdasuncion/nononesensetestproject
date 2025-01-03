@@ -24,5 +24,8 @@ app.listen(port, () => {
     console.log(`[server]: Server is running at http://localhost:${port}`);
 });
 
+const password = encodeURIComponent(process.env.MONGODB_PASSWORD);
+
 mongoose.connect(
-    `mongodb://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@mongodb:27017/question_DB?authSource=admin`);
+   // `mongodb://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@mongodb:27017/question_DB?authSource=admin`);
+    `mongodb+srv://${process.env.MONGODB_USERNAME}:${password}@testproject.l5bnv.mongodb.net/?retryWrites=true&w=majority&appName=TestProject`);
